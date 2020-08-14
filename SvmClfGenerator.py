@@ -32,12 +32,12 @@ seed(1)
 import librosa.display, librosa
 
 # Configurations
-path='./london_phill_dataset_multi/'
-mmean_dataPath = '.\SvmClfParams\TraningDatasetMean\DatasetMean.csv'
-mstd_dataPath = '.\SvmClfParams\TraningDatasetStd\DatasetStd.csv'
-scaledFeatureVectorsPath = ".\SvmClfParams\TraningDatasetFeatureVectors\mfcc_feature_vectors.pl"
-classifierPath = './SVMClfParams\TrainedSVM/trainedSVM.joblib'
-atasetClassesPath = '.\SvmClfParams\TrainigDatasetClasses\DatasetClasses.npy'
+path='london_phill_dataset_multi'
+mmean_dataPath = 'SVMClfParams/TraningDatasetMean/DatasetMean.csv'
+mstd_dataPath = 'SVMClfParams/TraningDatasetStd/DatasetStd.csv'
+scaledFeatureVectorsPath = "SVMClfParams/TraningDatasetFeatureVectors/mfcc_feature_vectors.pl"
+classifierPath = 'SVMClfParams/TrainedSVM/trainedSVM.joblib'
+datasetClassesPath = 'SVMClfParams/TrainigDatasetClasses/DatasetClasses.npy'
 
 files = []
 for root, dirnames, filenames in os.walk(path):
@@ -66,7 +66,7 @@ labelencoder.fit(labels)  # ['cello' 'flute' 'oboe' 'sax' 'trumpet' 'viola']
 print(len(labelencoder.classes_), "classes:", ", ".join(list(labelencoder.classes_)))
 classes_num = labelencoder.transform(labels)  # [0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4]
 # save the label classes
-np.save(atasetClassesPath, labelencoder.classes_)
+np.save(datasetClassesPath, labelencoder.classes_)
 
 # Parameters
 # Signal Processing Parameters

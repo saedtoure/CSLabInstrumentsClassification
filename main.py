@@ -126,7 +126,7 @@ class AudioHandler(object):
                     continue
 
                 print('peaks:',indexes[:8])
-                print('fundamental_frequqncy: ~',fundamental*21.5)
+                # print('fundamental_frequqncy: ~',fundamental*21.5)
                 for text in ax[0].texts:
                     text.set_visible(False)
                 ax[0].text(300, 2, self.predictor.getPrediction(numpy_array)[0].upper(), style='italic',
